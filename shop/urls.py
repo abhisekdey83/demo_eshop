@@ -13,7 +13,7 @@ path('destroycat/<int:id>/', views.destroycat),
 #product urls
 
 path('ProductSave/', views.ProductSave),  
-path('show_Product',views.show_Product),  
+path('show_Product/',views.show_Product),  
 path('editProduct/<int:id>', views.editcat),  
 path('updateProduct/<int:id>', views.updatecat),  
 path('destroyProduct/<int:id>', views.destroycat),

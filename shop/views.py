@@ -61,7 +61,7 @@ def destroycat(request, id):
 
 
 def ProductSave(request):
-	
+
 	if request.method == "POST":  
 	    pform = ProductForm(request.POST)  
 	    if pform.is_valid():  
@@ -77,8 +77,8 @@ def ProductSave(request):
 
 
 def show_Product(request):  
-    Product = Product.objects.all()  
-    return render(request,"show_Product.html",{'Product':Product})
+    Products = Product.objects.all()  
+    return render(request,"product_show.html",{'Products':Products})
 
 
 

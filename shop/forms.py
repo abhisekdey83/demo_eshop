@@ -8,4 +8,4 @@ class CatagoryForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
 	class Meta:
 		model=Product
-		fields="__all__"
+		fields=['cat_id','name','sku','description','status','barcode','features']
