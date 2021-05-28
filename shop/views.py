@@ -33,19 +33,19 @@ def show_cat(request):
 
 
 def editcat(request, id):  
-	Category = Category.objects.get(id=cat_id)  
-	return render(request,'edit.html', {'Category':Category})
+	Categoryd = Category.objects.get(cat_id=id)  
+	return render(request,'edit.html', {'Category':Categoryd})
 
 
 
 
 def updatecat(request, id):  
-    Category = Category.objects.get(id=id)  
-    form = CatagoryForm(request.POST, instance = Category)  
+    Categoryd = Category.objects.get(cat_id=id)  
+    form = CatagoryForm(request.POST, instance = Categoryd)  
     if form.is_valid():  
         form.save()  
         return redirect("/show_cat")  
-    return render(request, 'edit.html', {'Category': Category})
+    return render(request, 'edit.html', {'Category': Categoryd})
 
 
 def destroycat(request, id):  
