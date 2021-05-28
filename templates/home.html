@@ -7,12 +7,16 @@
 							  
 							</div>
 	<div class="monthly-grid">
-		<form method="post" action="/CategorySave">
-			
+		<form method="post">
+
 {% csrf_token %}
-<table border="1px">{{form.as_table}}
+<table border="1px">
+
+{{c_form.as_table}}
+
 </table>
 
+<button type="submit">SAVE</button>
 </form>
 <br><br>
 <a href="/show_cat/">Back to List</a>

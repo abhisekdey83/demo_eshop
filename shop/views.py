@@ -20,9 +20,10 @@ def CategorySave(request):
 			except:  
 				pass
 			else:  
-				form = CatagoryForm()
+				c_form = CatagoryForm()
+				
 
-	return render(request,'home.html',{'form':form})
+	return render(request,'home.html',{'c_form':c_form})
 	 
 
 
