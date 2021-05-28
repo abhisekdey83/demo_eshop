@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect  
-from shop.forms import CatagoryForm  
-from shop.models import Category  
+from shop.forms import CatagoryForm , ProductForm
+from shop.models import Category, Product 
+import pdb
 
 # Create your views here.
 
@@ -32,8 +33,8 @@ def show_cat(request):
 
 
 def editcat(request, id):  
-    Category = Category.objects.get(id=id)  
-    return render(request,'edit.html', {'Category':Category})
+	Category = Category.objects.get(id=cat_id)  
+	return render(request,'edit.html', {'Category':Category})
 
 
 
@@ -43,14 +44,14 @@ def updatecat(request, id):
     form = CatagoryForm(request.POST, instance = Category)  
     if form.is_valid():  
         form.save()  
-        return redirect("/show")  
+        return redirect("/show_cat")  
     return render(request, 'edit.html', {'Category': Category})
 
 
 def destroycat(request, id):  
-    Category = Category.objects.get(id=id)  
+    Category = Category.objects.get(id=cat_id)  
     Category.delete()  
-    return redirect("/show")  
+    return redirect("/show_cat")  
 
 
 
@@ -60,25 +61,24 @@ def destroycat(request, id):
 
 
 def ProductSave(request):
+	
 	if request.method == "POST":  
-		form = ProductForm(request.POST)  
-		if form.is_valid():  
-			try:  
-				form.save()  
-				return redirect('/show_Product')  
-			except:  
-				pass
-			else:  
-				p_form = ProductForm()
-				
-
-	return render(request,'home.html',{'p_form':p_form})
+	    pform = ProductForm(request.POST)  
+	    if pform.is_valid():  
+	        try:  
+	            pform.save()  
+	            return redirect('/show_Product')  
+	        except:  
+	            pass  
+	else:  
+	    pform = ProductForm()  
+	return render(request,'product_add.html',{'pform':pform})
 	 
 
 
 def show_Product(request):  
     Product = Product.objects.all()  
-    return render(request,"show.html",{'Product':Product})
+    return render(request,"show_Product.html",{'Product':Product})
 
 
 
