@@ -8,7 +8,12 @@ class Category(models.Model):
 	cat_desc = models.CharField(max_length=255)
 		
 
-class Item(models.Model):
+
+
+
+
+
+class Product(models.Model):
 	STATUS_CHOICES = (
         ('Active', 'Active'),
         ('Inactive', 'Inactive'),
@@ -29,6 +34,6 @@ class Item(models.Model):
 	meta_tag = models.CharField(max_length=255,null=True,blank = True)
 	meta_keyword = models.TextField(null=True,blank = True)
 	meta_description = models.TextField(null=True,blank = True)
-	item_image = models.ImageField(upload_to='images/')
-	image_alt = models.CharField(max_length=255)
+	image = models.ImageField(upload_to='images/')
+	alt = models.CharField(max_length=255)
 	is_shipped_to_home = models.CharField(max_length=100,choices=DEFAULT_CHOICES,null=True,blank=True)

@@ -1,0 +1,9 @@
+<form method="post" action="/CategorySave">
+			
+{% csrf_token %}
+<table border="1px">{{form.as_table}}
+</table>
+
+</form>
+<br><br>
+<a href="/show_cat/">Back to List</a>
